@@ -2,13 +2,14 @@ version: '3.7'
 
 services:
   liquibase-migrations:
-    image: liquibase/liquibase
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: liquibase-migrations
     env_file:
       - .env
     volumes:
       - ./migrations:${MIGRATIONS_PATH:-/opt/migrations}
-    working_dir: ${MIGRATIONS_PATH:-/opt/migrations}
     command:
       - '--classpath=/liquibase/changelog'
       - '--url=jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}'

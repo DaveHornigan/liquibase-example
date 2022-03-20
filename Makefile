@@ -4,12 +4,7 @@ build:
 
 .PHONY: run
 run:
-	docker run --rm --name liquibase-migrations liquibase-migrations:latest --classpath=/liquibase/changelog \                                                       ✔
-      --url="jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}" \
-      --username="${DATABASE_USER}" \
-      --password="${DATABASE_PASS}" \
-      --changeLogFile=./master.yaml \
-      update
+	chmod +x ./run.sh && ./run.sh
 
 .PHONY: compose-up
 compose-up:
