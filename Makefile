@@ -11,4 +11,12 @@ run:
       --changeLogFile=./master.yaml \
       update
 
+.PHONY: compose-up
+compose-up:
+	docker-compose up --build
+
+.PHONY: compose-down
+compose-up:
+	docker-compose down --rmi local
+
 .DEFAULT_GOAL := build
