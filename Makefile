@@ -16,7 +16,7 @@ compose-up:
 	docker-compose up --build
 
 .PHONY: compose-down
-compose-up:
+compose-down:
 	docker-compose down --rmi local
 
 .DEFAULT_GOAL := build
